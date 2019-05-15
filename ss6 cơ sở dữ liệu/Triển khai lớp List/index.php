@@ -33,21 +33,21 @@
             }
             return false;
         }       
-        public function remove($index)
-        {
-            if ($this->isInteger($index) && $index < count($this->arrayList) ) {
-                unset($this->arrList[$index]);
-                $newArrayList = array();
-                for ($i = 0; $i < $this->size(); $i++) {
-                    if ($index != $i) {
-                        $newArrayList[] = $this->get($i);
-                    }
-                }
-                $this->arrList = $newArrayList;
-            } else {
-                die("ERROR in ArrayList.remove <br> Integer value required");
-            }
-        }
+        // public function remove($index)
+        // {
+        //     if ($this->isInteger($index) && $index < count($this->arrayList) ) {
+        //         unset($this->arrList[$index]);
+        //         $newArrayList = array();
+        //         for ($i = 0; $i < $this->size(); $i++) {
+        //             if ($index != $i) {
+        //                 $newArrayList[] = $this->get($i);
+        //             }
+        //         }
+        //         $this->arrList = $newArrayList;
+        //     } else {
+        //         die("ERROR in ArrayList.remove <br> Integer value required");
+        //     }
+        // }
         public function size()
         {
             return count($this->arrayList);

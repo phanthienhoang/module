@@ -15,7 +15,8 @@ CREATE TABLE students(
     studen_number varchar(15) PRIMARY KEY ,
     studen_name varchar(200),
     address varchar (200),
-    email varchar(200)
+    email varchar(200),
+    image mediumblob
 );
 CREATE TABLE borroworder(
     studen_name varchar(200),
