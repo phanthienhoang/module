@@ -27,4 +27,41 @@ CREATE TABLE borroworder(
     FOREIGN KEY (book_number) REFERENCES book(book_number),
     FOREIGN KEY (studen_number) REFERENCES students(studen_number)
 );
-
+create database CSDL_QUAN_LY_BAN_HANG;
+create table KhachHang(
+	MaKH int AUTO_INCREMENT PRIMARY KEY,
+    HoTenkH varchar(100),
+    Diachi varchar(100),
+    Dienthoai varchar(55)
+);
+create table Nhanvien(
+	maNV int AUTO_INCREMENT PRIMARY KEY,
+    HoNV varchar(50),
+    TenNV varchar(50),
+    GioiTinh varchar(15),
+    NgaySinh date,
+    DiaChi text,
+    DienThoai varchar(12)
+);
+CREATE table SanPham(
+	MaSP int AUTO_INCREMENT PRIMARY KEY,
+    TenSP varchar (50),
+    DonViTinh text ,
+    DonGia int
+);
+create table HoaDon(
+	MaHD int AUTO_INCREMENT PRIMARY KEY,
+    MaKH int ,
+    MaNv int ,
+    NgayLapHD date,
+    NgayNhanHang date,
+    FOREIGN KEY (MaKH) REFERENCES KhachHang(MaKH),
+    FOREIGN KEY (MaNv) REFERENCES Nhanvien(maNV)
+);
+create table ChitietHoaDon(
+	MaHD int PRIMARY KEY,
+    MaSP int ,
+    SoLuong int ,
+    FOREIGN KEY (MaHD) REFERENCES HoaDon(MaHD),
+    FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
+);

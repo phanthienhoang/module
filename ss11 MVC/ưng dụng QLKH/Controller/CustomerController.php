@@ -43,10 +43,23 @@
             $id = $_GET['id'];
             $customer = $this->customerDB->get($id);
             include 'view/delete.php';
-        } else {
-            $id = $_POST['id'];
-            $this->customerDB->delete($id);
-            header('Location: index.php');
+            } else {
+                $id = $_POST['id'];
+                $this->customerDB->delete($id);
+                header('Location: index.php');
+            }
         }
+        public function edit()
+        {
+            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+                $id = $_GET['id'];
+                $customer = $this->customerDB->get($id);
+                include 'view/edit.php';
+            } else {
+                $id = $_POST['id'];
+                $customer = new Customer($_POST['name'], $_POST['email'], $_POST['ngaysinh']);
+                $this->customerDB->update($id, $customer);
+                header('Location: index.php');
+            }
         }
 }
